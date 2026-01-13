@@ -1,0 +1,18 @@
+{
+    "id": 87687,
+    "category": {
+        "id": 0,
+        "name": "donald duck"
+    },
+    "name": "duck",
+    "photoUrls": [
+        "string"
+    ],
+    "tags": [
+        {
+            "id": 0,
+            "name": "Disney"
+        }
+    ],
+    "status": "available"
+}

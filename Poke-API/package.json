@@ -1,0 +1,18 @@
+{
+  "name": "poke-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cheese": "npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.17.2"
+  },
+  "dependencies": {
+    "easy-json-schema": "^0.0.2-beta"
+  }
+}

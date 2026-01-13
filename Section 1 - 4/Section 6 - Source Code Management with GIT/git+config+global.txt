@@ -1,0 +1,15 @@
+[user]
+	email = gober.jonathan@gmail.com
+	name = Jonathan Gober
+[core]
+	editor = code --wait
+	autocrlf = true
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	ci = commit
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = "code --wait --diff $LOCAL $REMOTE"
