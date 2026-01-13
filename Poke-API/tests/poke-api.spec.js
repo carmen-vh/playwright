@@ -1,18 +1,35 @@
 const { test, expect } = require('@playwright/test')
 
-const file = require('../json/bulbasaur-schema.json')
-
+const file = require('../json/squirtle-schema.json')
 const ejs = require('easy-json-schema')
 
 test('Pokemon Information', async ({ request }) => {
-   const pokemon = await request.get('pokemon/bulbasaur');
-   let pokejson = await pokemon.json();
-   //console.log(await pokejson.moves[5].move.name);
-   //expect(pokemon.ok()).toBeTruthy();
-   //expect(JSON.stringify(pokejson)).toMatchSnapshot();
-   let pokeForms = pokejson.forms;
+   const pokemon = await request.get('pokemon/squirtle')
+   let pokeJson = await pokemon.json()
 
-   const formSchema = ejs(pokeForms);
+   console.log(await pokeJson.moves[5].move.name)
+   expect(pokemon.ok()).toBeTruthy()
+   //expect(JSON.stringify(pokeJson)).toMatchSnapshot();
+   //let pokeForms = pokeJson.forms
 
+   //const formSchema = ejs(pokeForms)
+
+   //expect(file).toEqual(formSchema)
+})
+
+test('Pokemon Information: Snapshot Testing', async ({ request }) => {
+    const pokemon = await request.get(`pokemon/squirtle`)
+    const pokeJson = await pokemon.json()
+    expect(JSON.stringify(pokeJson)).toMatchSnapshot()
+})
+
+test('Pokemon Information: Schema Testing', async ({ request }) => {
+   const pokemon = await request.get('pokemon/squirtle')
+   // const pokemon = await request.get('pokemon/234')
+   let pokeJson = await pokemon.json()
+   let pokeForms = pokeJson.forms
+
+   //console.log(pokeForms)
+   const formSchema = ejs(pokeForms)
    expect(file).toEqual(formSchema)
 })
